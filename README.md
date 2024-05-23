@@ -1,4 +1,4 @@
-MIS Web Design Proposal
+Web Design : Wet Socks
 
 소개 : 영화‧드라마‧유튜브 채널‧스트리머 추천 및 이에 대해 리뷰를 남기거나 투표를
 하는 등 다양한 의견을 나누는 플랫폼
