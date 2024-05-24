@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Stats</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .content {
+            flex: 1;
+        }
+        .charts-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px auto;
+        }
+        .chart-container {
+            width: 300px;
+            height: 250px; /* 세로 길이 줄이기 */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Visitor Statistics</h1>
+    </div>
+    <footer class="charts-container">
+        <div class="chart-container">
+            <canvas id="dailyChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="monthlyChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="yearlyChart"></canvas>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
