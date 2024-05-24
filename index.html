@@ -7,19 +7,24 @@
     <title>Wet Socks</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Existing styles */
+
         .category-menu {
             display: none;
-            position: absolute;
-            top: 50px;
-            left: 0;
+            position: fixed;
+            top: 50%;
+            left: 60px;
+            transform: translateY(-50%);
             width: 200px;
             background-color: white;
             border: 1px solid #ccc;
             z-index: 1000;
+            text-align: center;
         }
 
-        .category h5 {
-            padding-left: 15px;
+        .category-menu h5,
+        .category-menu .list-group-item {
+            text-align: center;
         }
 
         .card img {
@@ -45,14 +50,14 @@
 
         .navbar-toggler {
             border-color: transparent;
-            display: inline-block; /* Ensure the button is always displayed */
+            display: inline-block;
         }
 
         .navbar-toggler-icon {
             background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 255%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
         }
 
-        .navbar { 
+        .navbar {
             justify-content: space-between;
         }
 
@@ -74,16 +79,63 @@
         .logo img {
             max-height: 40px;
         }
+
+        .floating-icon {
+            position: fixed;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            z-index: 1001;
+            cursor: pointer;
+        }
+
+        .floating-icon img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .recommendation-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .recommendation-category {
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .recommendation-category:hover {
+            transform: scale(1.1);
+        }
+
+        .recommendation-category img {
+            width: 220px;
+            height: 240px;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .recommendation-result {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .recommendation-result img {
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #000;
+            transition: opacity 1s;
+        }
     </style>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" id="category-btn" aria-controls="category-menu" aria-expanded="false" aria-label="Toggle navigation">
-            <img src="category.png" alt="Menu Icon" style="width: 30px; height: 30px;">
-        </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="MIS.html">
             <div class="logo">
                 <img src="logo.png" alt="Wet Socks Logo">
             </div>
@@ -91,10 +143,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">login</a>
+                    <a class="nav-link" href="login.html">login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">my page</a>
+                    <a class="nav-link" href="signup.html">sign up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">home</a>
@@ -115,11 +167,16 @@
         </ul>
     </div>
 
+    <div class="floating-icon" id="floating-icon">
+        <img src="category.png" alt="Category Icon">
+    </div>
+
     <div class="container">
         <div class="row mt-4 justify-content-end">
             <div class="col-auto">
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px;">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                        style="width: 200px;">
                 </form>
             </div>
         </div>
@@ -156,6 +213,7 @@
             </div>
         </div>
 
+
         <!-- Movie Section -->
         <div class="row mt-4">
             <div class="col-12">
@@ -167,7 +225,8 @@
                     <div class="card-body">
                         <h5 class="card-title">혹성탈출: 새로운 시대</h5>
                         <p class="card-text">4.3/5</p>
-                        <p class="card-text text-primary">주인공도 감독도 바뀌었는데 레전드급 서사를 보여주네요 이미 할만큼 다 한 얘기라고 생각했는데 아직도 할 얘기가 많이 남은 혹성탈출의 세계라니 . . . 지능을 얻은 유인원들의 사회 등이 진짜 와 . . . 이건 꼭 극장가서 보십쇼</p>
+                        <p class="card-text text-primary">주인공도 감독도 바뀌었는데 레전드급 서사를 보여주네요 이미 할만큼 다 한 얘기라고 생각했는데 아직도 할 얘기가
+                            많이 남은 혹성탈출의 세계라니 . . . 지능을 얻은 유인원들의 사회 등이 진짜 와 . . . 이건 꼭 극장가서 보십쇼</p>
                     </div>
                 </div>
             </div>
@@ -187,7 +246,8 @@
                     <div class="card-body">
                         <h5 class="card-title">쿵푸팬더4</h5>
                         <p class="card-text">2/5</p>
-                        <p class="card-text text-primary">4편의 악당은 전작들의 악당에 비하면 임팩트는 너무 없어요 아무래도 포가 이미 쿵푸 정점을 찍다보니 포보다는 신캐 활약 비중이 많아보이더라고요</p>
+                        <p class="card-text text-primary">4편의 악당은 전작들의 악당에 비하면 임팩트는 너무 없어요 아무래도 포가 이미 쿵푸 정점을 찍다보니 포보다는
+                            신캐 활약 비중이 많아보이더라고요</p>
                     </div>
                 </div>
             </div>
@@ -224,7 +284,8 @@
                     <div class="card-body">
                         <h5 class="card-title">수리남</h5>
                         <p class="card-text">88.6</p>
-                        <p class="card-text text-primary">쓸데 없는 럽라 같은거 없이 딱 스토리만 진행해서 6부로 끝낸게 정말 대단한 작품이라고 생각함. 진짜로 군더더기 없는 작품.</p>
+                        <p class="card-text text-primary">쓸데 없는 럽라 같은거 없이 딱 스토리만 진행해서 6부로 끝낸게 정말 대단한 작품이라고 생각함. 진짜로 군더더기
+                            없는 작품.</p>
                     </div>
                 </div>
             </div>
@@ -267,50 +328,46 @@
             </div>
         </div>
 
-        <div class="row mt-4">
+        <!-- Random Recommendation Section -->
+        <div class="row mt-4 recommendation-section" id="question-section">
             <div class="col-12 text-center">
-                <h5>[ Randomly selected content ] “ 오늘 뭐 볼까? ”</h5>
-                <img src="https://via.placeholder.com/800x400" class="img-fluid" alt="...">
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-6">
                 <h5>What to watch today?</h5>
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="https://via.placeholder.com/100x100" class="img-fluid" alt="...">
-                    </div>
+                <div class="recommendation-category" id="movie-button">
+                    <img src="movie.png" alt="Movie Icon">
+                </div>
+                <div class="recommendation-category" id="drama-button">
+                    <img src="drama.png" alt="Drama Icon">
+                </div>
+                <div class="recommendation-category" id="streamer-button">
+                    <img src="streamer.png" alt="Streamer Icon">
                 </div>
             </div>
-            <div class="col-6">
-                <h5>이 콘텐츠를 시청한 사람</h5>
-                <img src="https://via.placeholder.com/400x300" class="img-fluid" alt="...">
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12 recommendation-result" id="recommendation-result">
+                <h5 id="recommendation-title"></h5>
+                <img id="recommendation-image" src="" alt="Recommendation">
+                <h5 id="today-pick"></h5>
             </div>
         </div>
-    </div>
 
-    <div class="footer">
-        <p>Site name</p>
-        <p>
-            <a href="#">Facebook</a> |
-            <a href="#">LinkedIn</a> |
-            <a href="#">Instagram</a> |
-            <a href="#">YouTube</a>
-        </p>
+        <div class="footer">
+            <p>Site name</p>
+            <p>
+                <a href="#">Facebook</a> |
+                <a href="#">LinkedIn</a> |
+                <a href="#">Instagram</a> |
+                <a href="#">YouTube</a>
+            </p>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('category-btn').addEventListener('click', function () {
+        document.getElementById('floating-icon').addEventListener('click', function () {
             var menu = document.getElementById('category-menu');
             if (menu.style.display === 'none' || menu.style.display === '') {
                 menu.style.display = 'block';
@@ -328,6 +385,64 @@
                 this.style.fontWeight = 'normal';
             });
         });
+
+        var movies = [
+            { title: "혹성탈출: 새로운 시대", image: "혹성탈출_새로운시대.jpeg" },
+            { title: "범죄도시 4", image: "범죄도시4.jpg" },
+            { title: "쿵푸팬더4", image: "쿵푸팬더4.jpeg" }
+        ];
+
+        var dramas = [
+            { title: "눈물의 여왕", image: "눈물의 여왕 PNG.png" },
+            { title: "더 글로리", image: "The_Glory PNG.png" },
+            { title: "수리남", image: "수리남 PNG.png" }
+        ];
+
+        var streamers = [
+            { title: "감스트 GAMST", image: "감스트.png" },
+            { title: "침착맨 Calm Down Man", image: "침착맨.png" },
+            { title: "우왁굳 woowakgood", image: "우왁굳.png" }
+        ];
+
+        function getRandomItem(array) {
+            var randomIndex = Math.floor(Math.random() * array.length);
+            return array[randomIndex];
+        }
+
+        document.getElementById('movie-button').addEventListener('click', function () {
+            var recommendation = getRandomItem(movies);
+            showRecommendation(recommendation);
+        });
+
+        document.getElementById('drama-button').addEventListener('click', function () {
+            var recommendation = getRandomItem(dramas);
+            showRecommendation(recommendation);
+        });
+
+        document.getElementById('streamer-button').addEventListener('click', function () {
+            var recommendation = getRandomItem(streamers);
+            showRecommendation(recommendation);
+        });
+
+        function showRecommendation(recommendation) {
+            var questionSection = document.getElementById('question-section');
+            questionSection.style.display = 'none';
+
+            var resultSection = document.getElementById('recommendation-result');
+            var recommendationImage = document.getElementById('recommendation-image');
+            var recommendationTitle = document.getElementById('recommendation-title');
+            var todayPick = document.getElementById('today-pick');
+
+            recommendationImage.src = recommendation.image;
+            recommendationTitle.textContent = recommendation.title;
+            todayPick.textContent = "Today's random pick is: " + recommendation.title;
+
+            resultSection.style.display = 'block';
+            recommendationImage.style.opacity = 0;
+            setTimeout(function () {
+                recommendationImage.style.opacity = 1;
+            }, 100);
+        }
     </script>
 </body>
 
