@@ -9,13 +9,18 @@
     <style>
         .category-menu {
             display: none;
-            position: absolute;
+            position: fixed;
             top: 50px;
-            left: 0;
+            left: -200px;
             width: 200px;
             background-color: white;
             border: 1px solid #ccc;
             z-index: 1000;
+            transition: left 0.3s;
+        }
+
+        .category-menu.show {
+            left: 0;
         }
 
         .category h5 {
@@ -24,8 +29,8 @@
 
         .card img {
             height: 300px;
+            width: 100%;
             object-fit: contain;
-            border: 2px solid black;
         }
 
         .footer {
@@ -79,6 +84,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       
         <button class="navbar-toggler" type="button" id="category-btn" aria-controls="category-menu" aria-expanded="false" aria-label="Toggle navigation">
             <img src="category.png" alt="Menu Icon" style="width: 30px; height: 30px;">
         </button>
@@ -115,10 +121,10 @@
     </div>
 
     <div class="container">
-        <div class="row mt-4">
-            <div class="col-12">
+        <div class="row mt-4 justify-content-end">
+            <div class="col-auto">
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2 w-100" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px;">
                 </form>
             </div>
         </div>
@@ -134,10 +140,10 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="...">
+                            <img src="c:\Users\samsung\Desktop\MIS Design Proposal_Team 8\hunt.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="...">
+                            <img src="eight.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="...">
@@ -162,31 +168,31 @@
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="흑성탈출.jpeg" class="card-img-top" alt="...">
+                    <img src="cc4.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">흑성탈출: 새로운 시대</h5>
+                        <h5 class="card-title">범죄도시4</h5>
                         <p class="card-text">4.3/5</p>
-                        <button class="btn btn-primary">주인공도 감독도 바뀌었는데 레전드급 서사를 보여주네요 이미 할만큼 다 한 얘기라고 생각했는데 아직도 할 얘기가 많이 남은 혹성탈출의 세계라니 . . . 지능을 얻은 유인원들의 사회 등이 진짜 와 . . . 이건 꼭 극장가서 보십쇼</button>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="범죄도시4.jpg" class="card-img-top" alt="...">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">범죄도시 4</h5>
+                        <h5 class="card-title">Title</h5>
                         <p class="card-text">3.5/5</p>
-                        <button class="btn btn-primary">범죄도시의 진주인공은 장이수임 ㅋㅋㅋ</button>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="쿵푸팬더4.jpeg" class="card-img-top" alt="...">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">쿵푸팬더4</h5>
+                        <h5 class="card-title">Title</h5>
                         <p class="card-text">2/5</p>
-                        <button class="btn btn-primary">4편의 악당은 전작들의 악당에 비하면 임팩트는 너무 없어요 아무래도 포가 이미 쿵푸 정점을 찍다보니 포보다는 신캐 활약 비중이 많아보이더라고요</button>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
@@ -199,31 +205,31 @@
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="눈물의 여왕 PNG.png" class="card-img-top" alt="눈물의 여왕 포스터">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">눈물의 여왕</h5>
-                        <p class="card-text">84.7</p>
-                        <button class="btn btn-primary">김지원 김수현 얼굴만으로도 충분히 재밌음 ㅋㅋ</button>
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">4.3/5</p>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="The_Glory PNG.png" class="card-img-top" alt="...">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">더 글로리</h5>
-                        <p class="card-text">91.3</p>
-                        <button class="btn btn-primary">박연진이 검사아빠있었으면 학폭쭘은 더 깔끔하게 막았으텐데</button>
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">3.5/5</p>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="수리남 PNG.png" class="card-img-top" alt="...">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">수리남</h5>
-                        <p class="card-text">88.6</p>
-                        <button class="btn btn-primary">쓸데 없는 럽라 같은거 없이 딱 스토리만 진행해서 6부로 끝낸게 정말 대단한 작품이라고 생각함. 진짜로 군더더기 없는 작품.</button>
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">2/5</p>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
@@ -236,31 +242,31 @@
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="감스트.png" class="card-img-top" alt="감스트 GAMST">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">감스트 GAMST</h5>
+                        <h5 class="card-title">Title</h5>
                         <p class="card-text">4.3/5</p>
-                        <button class="btn btn-primary">감스트의 축구 중계는 전설이다. 진짜 요즘 개꿀잼!</button>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="침착맨.png" class="card-img-top" alt="침착맨 Calm Down Man">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">침착맨 Calm Down Man</h5>
-                        <p class="card-text">4.7/5</p>
-                        <button class="btn btn-primary">침착맨의 다양한 주제에 대한 토론이 제일 재밌었다.</button>
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">3.5/5</p>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="우왁굳.png" class="card-img-top" alt="우왁굳 woowakgood">
+                    <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">우왁굳 woowakgood</h5>
-                        <p class="card-text">4/5</p>
-                        <button class="btn btn-primary">컨텐츠가 다양해서 볼게 다양하다.</button>
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">2/5</p>
+                        <button class="btn btn-primary">Most Liked/ Read comment</button>
                     </div>
                 </div>
             </div>
@@ -313,8 +319,14 @@
             var menu = document.getElementById('category-menu');
             if (menu.style.display === 'none' || menu.style.display === '') {
                 menu.style.display = 'block';
+                setTimeout(function () {
+                    menu.classList.add('show');
+                }, 10); // allow time for display change to take effect
             } else {
-                menu.style.display = 'none';
+                menu.classList.remove('show');
+                setTimeout(function () {
+                    menu.style.display = 'none';
+                }, 300); // match the transition duration
             }
         });
 
