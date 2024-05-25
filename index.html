@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* Existing styles */
-
         .category-menu {
             display: none;
             position: fixed;
@@ -124,7 +123,7 @@
             border: 2px solid #000;
             transition: opacity 1s;
         }
-        
+
         .card {
             border: none;
             /* Remove borders from cards */
@@ -137,7 +136,8 @@
             /* Center text within the card body */
         }
 
-        .card-title, .card-text {
+        .card-title,
+        .card-text {
             margin: auto;
             /* Center align the card title and text */
             display: block;
@@ -236,8 +236,7 @@
         <div class="row mt-4 justify-content-end">
             <div class="col-auto">
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                        style="width: 200px;">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px;">
                 </form>
             </div>
         </div>
@@ -274,9 +273,8 @@
             </div>
         </div>
 
-
         <!-- Movie Section -->
-        <div class="row mt-4">
+        <div class="row mt-4" id="movie-section">
             <div class="col-12">
                 <h5>Movie</h5>
             </div>
@@ -317,7 +315,7 @@
         </div>
 
         <!-- Drama Section -->
-        <div class="row mt-4">
+        <div class="row mt-4" id="drama-section">
             <div class="col-12">
                 <h5>Drama</h5>
             </div>
@@ -356,7 +354,7 @@
         </div>
 
         <!-- Streamer Section -->
-        <div class="row mt-4">
+        <div class="row mt-4" id="streamer-section">
             <div class="col-12">
                 <h5>Streamer</h5>
             </div>
@@ -461,6 +459,27 @@
             });
             item.addEventListener('mouseout', function () {
                 this.style.fontWeight = 'normal';
+            });
+        });
+
+        // Add scrolling functionality to category menu items
+        listItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                var targetId;
+                if (item.textContent === 'Movie') {
+                    targetId = 'movie-section';
+                } else if (item.textContent === 'Drama') {
+                    targetId = 'drama-section';
+                } else if (item.textContent === 'Streamer') {
+                    targetId = 'streamer-section';
+                }
+
+                if (targetId) {
+                    var targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             });
         });
 
