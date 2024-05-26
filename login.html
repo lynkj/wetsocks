@@ -102,11 +102,47 @@
             color: #4bb8e3;
             margin: 0 10px;
         }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // 기본 폼 제출 동작 막기
+                
+                // 로그인 로직 구현 (여기서는 단순히 성공 메시지와 리디렉션을 추가함)
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                if (email && password) {
+                    // 기존 메시지가 있는지 확인
+                    const existingMessage = document.querySelector('.message');
+                    
+                    if (!existingMessage) {
+                        // 기존 메시지가 없으면 새 메시지를 추가
+                        const messageDiv = document.createElement('div');
+                        messageDiv.classList.add('message');
+                        messageDiv.textContent = '로그인 되었습니다.';
+                        document.querySelector('.login-box').appendChild(messageDiv);
+                    }
+
+                    // 로그인 성공 시 메인 페이지로 리디렉션
+                    setTimeout(() => {
+                        window.location.href = 'index 2.html'; // 리디렉션할 메인 페이지의 URL
+                    }, 2000); // 2초 후 리디렉션
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="#">
             <div class="logo">
                 <img src="logo.png" alt="Wet Socks Logo" style="height: 40px;">
             </div>
@@ -114,10 +150,10 @@
         <div class="ml-auto d-flex align-items-center">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">login</a>
+                    <a class="nav-link" href="login.html">login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="signup.html">sign up</a>
+                    <a class="nav-link" href="signup.html">Sign up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">home</a>
@@ -147,7 +183,7 @@
                 <button type="submit" class="submit-button">로그인</button>
             </form>
             <div class="extra-links">
-                <a href="#">회원가입</a> | <a href="#">비밀번호 찾기</a>
+                <a href="register.html">회원가입</a> | <a href="#">비밀번호 찾기</a>
             </div>
         </div>
     </div>
