@@ -193,6 +193,8 @@
         .chart-container {
             width: 300px;
             height: 250px;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -402,12 +404,15 @@
                 <h5>What to watch today?</h5>
                 <div class="recommendation-category" id="movie-button">
                     <img src="movie.png" alt="Movie Icon">
+                    <p>Movie</p>
                 </div>
                 <div class="recommendation-category" id="drama-button">
                     <img src="drama.png" alt="Drama Icon">
+                    <p>Drama</p>
                 </div>
                 <div class="recommendation-category" id="streamer-button">
                     <img src="streamer.png" alt="Streamer Icon">
+                    <p>Streamers</p>
                 </div>
             </div>
         </div>
@@ -424,12 +429,15 @@
     <!-- Visitor Statistics Section -->
     <div class="footer charts-container">
         <div class="chart-container">
+            <h5 class="chart-label">일일 방문자수</h5>
             <canvas id="dailyChart"></canvas>
         </div>
         <div class="chart-container">
+            <h5 class="chart-label">월별 방문자수</h5>
             <canvas id="monthlyChart"></canvas>
         </div>
         <div class="chart-container">
+            <h5 class="chart-label">연도별 방문자수</h5>
             <canvas id="yearlyChart"></canvas>
         </div>
     </div>
