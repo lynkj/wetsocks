@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content World Cup</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        
+         body {
+            font-family: 'noto-sans-jp', sans-serif; /* 추가된 부분 */
+        }
+        
+    
+
+        .noto-sans-jp-<uniquifier> {
+        font-family: "Noto Sans JP", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        }
+        .category-menu {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 60px;
+            transform: translateY(-50%);
+            width: 200px;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .category-menu h5,
+        .category-menu .list-group-item {
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .list-group-item:hover {
+            font-weight: bold;
+        }
+
+        .navbar-light {
+            background-color: white;
+        }
+
+        .navbar-toggler {
+            border-color: transparent;
+            display: inline-block;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 255%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+        }
+
+        .navbar {
+            justify-content: space-between;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        .nav-item {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .navbar-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo img {
+            max-height: 40px;
+        }
+
+        .content-worldcup,
+        .selection-screen {
+            margin-top: 20px;
+        }
+
+        .choice,
+        .section-choice {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .choice:hover,
+        .section-choice:hover {
+            transform: scale(1.05);
+        }
+
+        .round-title {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card img {
+            height: 300px;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .winner-card {
+            display: none;
+        }
+
+        .section-choice p {
+            font-size: 23px; /* 추가된 부분 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+            <div class="logo">
+                <img src="logo.png" alt="Wet Socks Logo">
+            </div>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup.html">sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="commun.html">community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="voting.html">wetsocks cup</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container selection-screen">
+        <h2 class="text-center">Ready to get your socks wet?</h2>
+        <div class="row">
+            <div class="col-md-4 text-center section-choice" id="section-movie">
+                <img src="movie.png" alt="Movie" class="img-fluid">
+                <p>Movie</p>
+            </div>
+            <div class="col-md-4 text-center section-choice" id="section-drama">
+                <img src="drama.png" alt="Drama" class="img-fluid">
+                <p>Drama</p>
+            </div>
+            <div class="col-md-4 text-center section-choice" id="section-streamer">
+                <img src="streamer.png" alt="Streamer" class="img-fluid">
+                <p>Streamer</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container content-worldcup" style="display:none;">
+        <h2 class="round-title" id="round-title">Semi-Finals</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card choice" id="choice-1">
+                    <img src="" class="card-img-top" alt="">
+                    <div class="card-body text-center">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card choice" id="choice-2">
+                    <img src="" class="card-img-top" alt="">
+                    <div class="card-body text-center">
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container winner-card" id="winner-card">
+        <h2 class="round-title" id="winner-title">Winner!</h2>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="card">
+                    <img src="" class="card-img-top" id="winner-img" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title" id="winner-name"></h5>
+                        <p class="card-text">Congratulations! You've chosen the winner.</p>
+                        <button class="btn btn-primary" id="back-to-home">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const movies = [
+            { title: "라라랜드", image: "lalaland.jpg" },
+            { title: "혹성탈출: 새로운 시대", image: "혹성탈출_새로운시대.jpeg" },
+            { title: "범죄도시4", image: "범죄도시4.jpg" },
+            { title: "쿵푸팬더4", image: "쿵푸팬더4.jpeg" }
+        ];
+
+        const dramas = [
+            { title: "Drama 1", image: "drama1.jpg" },
+            { title: "Drama 2", image: "drama2.jpg" },
+            { title: "Drama 3", image: "drama3.jpg" },
+            { title: "Drama 4", image: "drama4.jpg" }
+        ];
+
+        const streamers = [
+            { title: "Streamer 1", image: "streamer1.jpg" },
+            { title: "Streamer 2", image: "streamer2.jpg" },
+            { title: "Streamer 3", image: "streamer3.jpg" },
+            { title: "Streamer 4", image: "streamer4.jpg" }
+        ];
+
+        let content = [];
+        let semiFinalWinners = [];
+        let currentRound = 1;
+        let currentIndex = 0;
+
+        const roundTitle = document.getElementById('round-title');
+        const choice1 = document.getElementById('choice-1');
+        const choice2 = document.getElementById('choice-2');
+        const winnerCard = document.getElementById('winner-card');
+        const winnerImg = document.getElementById('winner-img');
+        const winnerName = document.getElementById('winner-name');
+        const backToHomeButton = document.getElementById('back-to-home');
+
+        document.getElementById('section-movie').addEventListener('click', () => {
+            content = shuffleArray(movies).slice(0, 4);
+            startWorldCup();
+        });
+
+        document.getElementById('section-drama').addEventListener('click', () => {
+            content = shuffleArray(dramas).slice(0, 4);
+            startWorldCup();
+        });
+
+        document.getElementById('section-streamer').addEventListener('click', () => {
+            content = shuffleArray(streamers).slice(0, 4);
+            startWorldCup();
+        });
+
+        function startWorldCup() {
+            document.querySelector('.selection-screen').style.display = 'none';
+            document.querySelector('.content-worldcup').style.display = 'block';
+            loadRound();
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function loadRound() {
+            if (currentRound === 1) {
+                roundTitle.textContent = "Semi-Finals (4강)";
+            } else if (currentRound === 2) {
+                roundTitle.textContent = "Finals";
+            }
+
+            choice1.querySelector('img').src = content[currentIndex].image;
+            choice1.querySelector('.card-text').textContent = content[currentIndex].title;
+            choice2.querySelector('img').src = content[currentIndex + 1].image;
+            choice2.querySelector('.card-text').textContent = content[currentIndex + 1].title;
+        }
+
+        function handleChoice(choice) {
+            if (currentRound === 1) {
+                semiFinalWinners.push(content[currentIndex + choice]);
+                currentIndex += 2;
+                if (currentIndex >= content.length) {
+                    currentRound++;
+                    content = semiFinalWinners;
+                    semiFinalWinners = [];
+                    currentIndex = 0;
+                }
+            } else if (currentRound === 2) {
+                const winner = content[choice];
+                roundTitle.style.display = 'none';
+                document.querySelector('.content-worldcup').style.display = 'none';
+                winnerCard.style.display = 'block';
+                winnerImg.src = winner.image;
+                winnerName.textContent = winner.title;
+                return;
+            }
+            loadRound();
+        }
+
+        choice1.addEventListener('click', () => handleChoice(0));
+        choice2.addEventListener('click', () => handleChoice(1));
+
+        backToHomeButton.addEventListener('click', () => {
+            winnerCard.style.display = 'none';
+            document.querySelector('.selection-screen').style.display = 'block';
+            roundTitle.style.display = 'block';
+            currentRound = 1;
+            currentIndex = 0;
+            semiFinalWinners = [];
+            content = [];
+        });
+
+        // Initial load
+        document.querySelector('.content-worldcup').style.display = 'none';
+        winnerCard.style.display = 'none';
+    </script>
+</body>
+
+</html>
