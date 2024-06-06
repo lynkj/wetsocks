@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,37 +12,52 @@
             background-color: #f5f5f5;
             margin: 0;
         }
-        .navbar {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
+
+        .navbar-light {
+            background-color: white;
         }
+
+        .navbar-toggler {
+            border-color: transparent;
+            display: inline-block;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 255%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+        }
+
+        .navbar {
+            justify-content: space-between;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        .nav-item {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
         .navbar-brand {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
         }
-        .navbar-nav {
-            display: flex;
-            list-style: none;
-            margin: 0;
+
+        .logo img {
+            max-height: 40px;
         }
-        .nav-item {
-            margin-left: 15px;
-        }
-        .nav-link {
-            text-decoration: none;
-            color: #000;
-        }
+
         .login-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 56px); /* Adjusting for the navbar height */
+            height: calc(100vh - 56px);
+            /* Adjusting for the navbar height */
             padding: 20px;
         }
+
         .login-box {
             background-color: #fff;
             padding: 20px;
@@ -50,19 +66,23 @@
             max-width: 400px;
             width: 100%;
         }
+
         .login-box h2 {
             text-align: center;
             margin-bottom: 20px;
         }
+
         .form-group {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
         }
+
         .form-group label {
             min-width: 100px;
             margin-right: 10px;
         }
+
         .form-group input[type="email"],
         .form-group input[type="password"] {
             width: calc(100% - 120px);
@@ -70,17 +90,21 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         .form-group input[type="checkbox"] {
             margin-right: 10px;
         }
+
         .form-group.checkbox-group {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
         }
+
         .form-group.checkbox-group label {
             margin: 0;
         }
+
         .submit-button {
             width: 100%;
             padding: 10px;
@@ -90,18 +114,22 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .submit-button:hover {
             background-color: #2f94bc;
         }
+
         .extra-links {
             text-align: center;
             margin-top: 15px;
         }
+
         .extra-links a {
             text-decoration: none;
             color: #4bb8e3;
             margin: 0 10px;
         }
+
         .message {
             text-align: center;
             margin-top: 20px;
@@ -110,19 +138,19 @@
         }
     </style>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.querySelector('form');
-            form.addEventListener('submit', function(event) {
+            form.addEventListener('submit', function (event) {
                 event.preventDefault(); // 기본 폼 제출 동작 막기
-                
+
                 // 로그인 로직 구현 (여기서는 단순히 성공 메시지와 리디렉션을 추가함)
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
-                
+
                 if (email && password) {
                     // 기존 메시지가 있는지 확인
                     const existingMessage = document.querySelector('.message');
-                    
+
                     if (!existingMessage) {
                         // 기존 메시지가 없으면 새 메시지를 추가
                         const messageDiv = document.createElement('div');
@@ -140,6 +168,7 @@
         });
     </script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
@@ -153,7 +182,7 @@
                     <a class="nav-link" href="login.html">login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="signup.html">sign up</a>
+                    <a class="nav-link" href="signup.html">Sign up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="commun.html">community</a>
@@ -188,4 +217,5 @@
         </div>
     </div>
 </body>
+
 </html>
